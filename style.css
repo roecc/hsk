@@ -1,5 +1,66 @@
 #myFrame {
-    width: 300px;
-    height: 300px;
+    width: 98vw;
+    height: 95vh;
 
+}
+
+vsc-initialized {
+    margin: 0px;
+}
+
+.init {
+    background-color: blue;
+    position: absolute;
+    display: flexbox;
+    width: 100px;
+    height: 100px;
+
+    align-self: center;
+    
+}
+
+.overlay-container {
+    position: absolute;
+    background-color:#000;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    
+ }
+ .overlay {
+    color: #fff;
+}
+
+.flex-item {
+    margin: 4px;
+
+}
+
+h1 {
+    color: #fff;
+    font-size: 20vw;
+    align-self: center;
+
+}
+
+#done {
+    background-color:olivedrab;
+    display: none;
+}
+
+#log {
+    color: #fff;
+    height: 20px;
+    width: 100px;
 }

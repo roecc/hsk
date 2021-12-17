@@ -4,20 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HSK</title>
 
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+    <div id="done" class="overlay-container">
+        <H1>完毕！</H1>
+    </div>
+    
+    <div id="overlay" class="overlay-container">
+        <div class="overlay flex-item">
+            选择练习日
+        </div>
+        <form id="dayForm">
+            <label>Test field: <input id="dayta" type="number"></label>
+        </form>
+        <p id="log"></p>
+    </div>
+
     <div id="mList" class="container">
         <iframe id="myFrame" src="" frameborder="0"></iframe>
     </div>
-
+    
+    
+    
     <script src="hskList.js"></script>
 
     <button onclick="showPrev()">Prev</button>
     <button onclick="showNext()">Next</button>
+
+
+    
 
 </body>
 </html>

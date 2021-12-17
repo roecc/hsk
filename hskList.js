@@ -151,10 +151,60 @@ const myLinks = [
 "https://www.hsk.help/dictionary/%E6%98%A8%E5%A4%A9/148"
 ]
 
-var count = -1;
-showNext();
+function logSubmit(event) {
+    var _day = document.getElementById ("dayta").value; //`Form Submitted! Time stamp: ${event.timeStamp}`;
 
-//showAll ();
+    count += (_day -1) * 10;
+
+    log.textContent = count;
+    //console.log ("hi");
+
+    modal.style.display = 'none';
+    //showNext();
+    event.preventDefault();
+
+    SRLCheck (_day);
+  }
+  
+const form = document.getElementById('dayForm');
+const log = document.getElementById('log');
+form.addEventListener('submit', logSubmit);
+  
+
+var count = -1;
+var itemList = [];
+
+const modal = document.getElementById ('overlay'); 
+const doneScreen = document.getElementById ('done');
+
+
+
+function SRLCheck (_day) {
+    //count = -1;
+    console.log (itemList);
+    pushTo (0);
+    if (_day > 1) {
+        pushTo (1);
+        if (_day > 7) {
+            pushTo (7);
+            if (_day > 31) {
+                pushTo (31);
+            }
+        }
+    }
+    
+
+    console.log (itemList);
+    count = -1;
+    showNext();
+}
+
+function pushTo (_modifier) {
+    _modifier = _modifier * 10;
+    for (let _i = 0; _i < 10; _i++) {
+        itemList.push(count +1 + _i - _modifier);
+    }
+}
 
 function showAll () {
     
@@ -169,15 +219,21 @@ function showAll () {
 }
 
 function showPrev () {
-    count--;
-    var findLink = document.getElementById('myFrame');
-    findLink.src = myLinks[count];
-    console.log (count);
+    if (count > 0) {
+        count--;
+        var findLink = document.getElementById('myFrame');
+        findLink.src = myLinks[itemList[count]];
+        console.log (count);
+    }
 }
 
 function showNext () {
     count++;
-    var findLink = document.getElementById('myFrame');
-    findLink.src = myLinks[count];
-    console.log (count);
+    if (count >= itemList.length) {
+        doneScreen.style.display = "flex";
+    } else {
+        var findLink = document.getElementById('myFrame');
+        findLink.src = myLinks[itemList[count]];
+        console.log (count);
+    }
 }
